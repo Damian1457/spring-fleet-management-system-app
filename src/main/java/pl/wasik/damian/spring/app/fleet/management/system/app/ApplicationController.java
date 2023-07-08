@@ -11,14 +11,14 @@ public class ApplicationController {
     private static final Logger LOGGER = Logger.getLogger(ApplicationController.class.getName());
 
     @GetMapping("/_layout")
-    public String create() {
-        LOGGER.info("create()");
+    public String home() {
+        LOGGER.info("home()");
         return "_layout";
     }
 
-    @GetMapping("/index2")
-    public String get() {
-        LOGGER.info("get()");
-        return "index2";
+    @GetMapping("/hr")
+    public String widget() {
+        LOGGER.info("widget()");
+        return "hr/index";
     }
 }
