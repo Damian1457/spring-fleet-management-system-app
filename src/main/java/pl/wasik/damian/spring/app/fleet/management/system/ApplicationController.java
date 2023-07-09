@@ -1,4 +1,4 @@
-package pl.wasik.damian.spring.app.fleet.management.system.app;
+package pl.wasik.damian.spring.app.fleet.management.system;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

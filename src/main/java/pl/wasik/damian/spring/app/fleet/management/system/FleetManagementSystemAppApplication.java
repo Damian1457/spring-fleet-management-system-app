@@ -1,4 +1,4 @@
-package pl.wasik.damian.spring.app.fleet.management.system.app;
+package pl.wasik.damian.spring.app.fleet.management.system;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
