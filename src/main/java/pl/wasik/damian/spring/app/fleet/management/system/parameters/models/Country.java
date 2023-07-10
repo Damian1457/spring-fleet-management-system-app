@@ -3,13 +3,13 @@ package pl.wasik.damian.spring.app.fleet.management.system.parameters.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -26,4 +26,7 @@ public class Country {
     private String description;
     private String nationality;
     private String continent;
+
+    @OneToMany(mappedBy = "country")
+    private List<State> states;
 }

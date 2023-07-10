@@ -26,4 +26,16 @@ public class Client {
     private String mobile;
     private String website;
     private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "countryid", insertable = false, updatable = false)
+    private Country country;
+    private Long countryid;
+
+    @ManyToOne
+    @JoinColumn(name = "stateid", insertable = false, updatable = false)
+    private State state;
+    private Long stateid;
+
+    private String details;
 }
