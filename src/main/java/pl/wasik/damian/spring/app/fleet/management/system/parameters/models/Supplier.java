@@ -2,10 +2,7 @@ package pl.wasik.damian.spring.app.fleet.management.system.parameters.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +17,7 @@ public class Supplier {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private Long id;
 
     private String name;
@@ -31,4 +28,15 @@ public class Supplier {
     private String website;
     private String email;
 
+    @ManyToOne
+    @JoinColumn(name = "countryid", insertable = false, updatable = false)
+    private Country country;
+    private Long countryid;
+
+    @ManyToOne
+    @JoinColumn(name = "stateid", insertable = false, updatable = false)
+    private State state;
+    private Long stateid;
+
+    private String details;
 }
