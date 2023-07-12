@@ -21,6 +21,6 @@ public class CountryController {
     public String getAll() {
         LOGGER.info("getAll()");
         List<Country> countries = countryService.getAll();
-        return "/parameters/countryList";
+        return "parameters/countryList";
     }
 }
