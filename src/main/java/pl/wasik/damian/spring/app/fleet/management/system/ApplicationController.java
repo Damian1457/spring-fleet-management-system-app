@@ -25,36 +25,36 @@ public class ApplicationController {
     @GetMapping("/hr")
     public String hr() {
         LOGGER.info("hr()");
-        return "/hr/index";
+        return "hr/index";
     }
 
     @GetMapping("/accounts")
     public String accounts() {
         LOGGER.info("accounts()");
-        return "/accounts/index";
+        return "accounts/index";
     }
 
     @GetMapping("/fleet")
     public String fleet() {
         LOGGER.info("fleet()");
-        return "/fleet/index";
+        return "fleet/index";
     }
 
     @GetMapping("/helpdesk")
     public String helpdesk() {
         LOGGER.info("helpdesk()");
-        return "/helpdesk/index";
+        return "helpdesk/index";
     }
 
     @GetMapping("/parameters")
     public String parameters() {
         LOGGER.info("parameters()");
-        return "/parameters/index";
+        return "parameters/index";
     }
 
     @GetMapping("/payroll")
     public String payroll() {
         LOGGER.info("payroll()");
-        return "/payroll/index";
+        return "payroll/index";
     }
 }
