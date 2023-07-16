@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import pl.wasik.damian.spring.app.fleet.management.system.parameters.models.Country;
 import pl.wasik.damian.spring.app.fleet.management.system.parameters.services.CountryService;
 
@@ -29,5 +30,11 @@ public class CountryController {
     @GetMapping("countryAdd")
     public String addCountry() {
         return "parameters/countryAdd";
+    }
+
+    @PostMapping("/countries")
+    public String save(Country country) {
+        countryService.save(country);
+        return "redirect:/countries";
     }
 }
