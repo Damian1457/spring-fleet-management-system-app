@@ -25,4 +25,9 @@ public class CountryController {
         model.addAttribute("countries", countries);
         return "parameters/countryList";
     }
+
+    @GetMapping("countryAdd")
+    public String addCountry() {
+        return "parameters/countryAdd";
+    }
 }
