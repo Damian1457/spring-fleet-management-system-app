@@ -3,8 +3,7 @@ package pl.wasik.damian.spring.app.fleet.management.system.parameters.controller
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.wasik.damian.spring.app.fleet.management.system.parameters.models.Country;
 import pl.wasik.damian.spring.app.fleet.management.system.parameters.services.CountryService;
 
@@ -27,7 +26,7 @@ public class CountryController {
         return "parameters/countryList";
     }
 
-    @GetMapping("countryAdd")
+    @GetMapping("/countryAdd")
     public String addCountry() {
         return "parameters/countryAdd";
     }
@@ -35,6 +34,12 @@ public class CountryController {
     @PostMapping("/countries")
     public String save(Country country) {
         countryService.save(country);
+        return "redirect:/countries";
+    }
+
+    @GetMapping("/countries/delete/{id}")
+    public String delete(@PathVariable Long id) {
+        countryService.delete(id);
         return "redirect:/countries";
     }
 }
