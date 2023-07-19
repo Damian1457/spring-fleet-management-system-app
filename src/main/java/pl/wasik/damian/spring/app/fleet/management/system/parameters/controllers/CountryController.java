@@ -54,6 +54,14 @@ public class CountryController {
         return "redirect:/countries";
     }
 
+    @GetMapping("/countryDetails/{id}")
+    public String detailsCountry(@PathVariable Long id, Model model) {
+        LOGGER.info("detailsCountry()");
+        Country country = countryService.getById(id);
+        model.addAttribute("country", country);
+        return "parameters/countryDetails";
+    }
+
     @GetMapping("/countries/delete/{id}")
     public String delete(@PathVariable Long id) {
         LOGGER.info("delete()");
