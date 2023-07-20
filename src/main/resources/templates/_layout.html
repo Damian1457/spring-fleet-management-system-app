@@ -18,19 +18,20 @@
     <link th:href="@{/css/bootstrap-theme.css}" rel="stylesheet">
     <!--external css-->
     <!-- font icon -->
-    <link th:href="@{/css/elegant-icons-style.css}" rel="stylesheet" />
+    <link th:href="@{/css/elegant-icons-style.css}" rel="stylesheet"/>
     <!--  <link th:href="@{css/font-awesome.min.css}" rel="stylesheet" />-->
-    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet"/>
 
     <!-- Load font awesome icons -->
     <!--
     x<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">-->
 
     <!-- full calendar css-->
-    <link th:href="@{/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css}" rel="stylesheet" />
-    <link th:href="@{/assets/fullcalendar/fullcalendar/fullcalendar.css}" rel="stylesheet" />
+    <link th:href="@{/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css}" rel="stylesheet"/>
+    <link th:href="@{/assets/fullcalendar/fullcalendar/fullcalendar.css}" rel="stylesheet"/>
     <!-- easy pie chart-->
-    <link th:href="@{/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css}" rel="stylesheet" type="text/css" media="screen" />
+    <link th:href="@{/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css}" rel="stylesheet" type="text/css"
+          media="screen"/>
     <!-- owl carousel -->
     <link rel="stylesheet" th:href="@{/css/owl.carousel.css}" type="text/css">
     <link th:href="@{/css/jquery-jvectormap-1.2.2.css}" rel="stylesheet">
@@ -38,7 +39,7 @@
     <link rel="stylesheet" th:href="@{/css/fullcalendar.css}">
     <link th:href="@{/css/widgets.css}" rel="stylesheet">
     <link th:href="@{/css/style.css}" rel="stylesheet">
-    <link th:href="@{/css/style-responsive.css}" rel="stylesheet" />
+    <link th:href="@{/css/style-responsive.css}" rel="stylesheet"/>
     <link th:href="@{/css/xcharts.min.css}" rel=" stylesheet">
     <link th:href="@{/css/jquery-ui-1.10.4.min.css}" rel="stylesheet">
     <!-- =======================================================
@@ -365,16 +366,6 @@
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
-                        <i class="icon_documents_alt"></i>
-                        <span>Payroll</span>
-                        <span class="menu-arrow arrow_carrot-right"></span>
-                    </a>
-                    <ul class="sub">
-                        <li><a class="" href="/payroll">Payroll Home</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;" class="">
                         <i class="icon_table"></i>
                         <span>Helpdesk</span>
                         <span class="menu-arrow arrow_carrot-right"></span>
@@ -393,6 +384,26 @@
                         <li><a class="" href="/parameters">Parameters Home</a></li>
                     </ul>
                 </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_document_alt"></i>
+                        <span>Reports</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="/reports">Reports Home</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_document_alt"></i>
+                        <span>Security</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="/security">Security Home</a></li>
+                    </ul>
+                </li>
             </ul>
             <!-- sidebar menu end-->
         </div>
@@ -401,38 +412,25 @@
 
     <!--main content start-->
     <section id="main-content">
-
-
-        <section class="wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
-                    <ol class="breadcrumb">
-                        <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-                        <li><i class="fa fa-laptop"></i>Dashboard</li>
-                    </ol>
-                </div>
-            </div>
-
-            <div layout:fragment="content">
-                <p>Changing contents</p>
-            </div>
-        </section>
-
-        <div class="text-right">
-            <div class="credits">
-                <!--
-                  All the links in the footer should remain intact.
-                  You can delete the links only if you purchased the pro version.
-                  Licensing information: https://bootstrapmade.com/license/
-                  Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-                -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
+        <div layout:fragment="content">
+            <p>Changing contents</p>
         </div>
-
     </section>
-    <!--main content end-->
+
+    <div class="text-right">
+        <div class="credits">
+            <!--
+              All the links in the footer should remain intact.
+              You can delete the links only if you purchased the pro version.
+              Licensing information: https://bootstrapmade.com/license/
+              Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
+            -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+    </div>
+
+</section>
+<!--main content end-->
 
 </section>
 <!-- container section start -->
@@ -522,6 +520,8 @@
           }
         });
       });
+
+
 
 
 
