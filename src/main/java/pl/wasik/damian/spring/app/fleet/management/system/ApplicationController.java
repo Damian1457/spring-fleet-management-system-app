@@ -52,9 +52,15 @@ public class ApplicationController {
         return "parameters/index";
     }
 
-    @GetMapping("/payroll")
-    public String payroll() {
-        LOGGER.info("payroll()");
-        return "payroll/index";
+    @GetMapping("/reports")
+    public String reports() {
+        LOGGER.info("reports()");
+        return "reports/index";
+    }
+
+    @GetMapping("/security")
+    public String security() {
+        LOGGER.info("security()");
+        return "security/index";
     }
 }
