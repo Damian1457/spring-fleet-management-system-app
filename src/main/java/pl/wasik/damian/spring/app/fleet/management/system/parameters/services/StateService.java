@@ -21,12 +21,10 @@ public class StateService {
         return stateRepository.findById(id).orElse(null);
     }
 
-    //Delete State
     public void delete(Long id) {
         stateRepository.deleteById(id);
     }
 
-    //Update State
     public void save(State state) {
         stateRepository.save(state);
     }
