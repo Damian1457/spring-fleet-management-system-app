@@ -58,9 +58,7 @@ public class CountryController {
         return "/parameters/countries";
     }
 
-    //The Get Country By Id
     @GetMapping("/parameters/country/{id}")
-    @ResponseBody
     public Country getCountry(@PathVariable Long id) {
         return countryService.getById(id);
     }
