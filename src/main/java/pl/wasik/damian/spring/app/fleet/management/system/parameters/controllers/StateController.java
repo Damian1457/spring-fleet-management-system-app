@@ -3,16 +3,13 @@ package pl.wasik.damian.spring.app.fleet.management.system.parameters.controller
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.wasik.damian.spring.app.fleet.management.system.parameters.models.State;
 import pl.wasik.damian.spring.app.fleet.management.system.parameters.services.CountryService;
 import pl.wasik.damian.spring.app.fleet.management.system.parameters.services.StateService;
 
 @Controller
 public class StateController {
-
     @Autowired
     private StateService stateService;
     @Autowired
@@ -44,8 +41,7 @@ public class StateController {
         return "/parameters/state" + op;
     }
 
-    //Add State
-    @PostMapping(value = "/parameters/states")
+    @PostMapping("/parameters/states")
     public String addNew(State state) {
         stateService.save(state);
         return "redirect:/parameters/states";
