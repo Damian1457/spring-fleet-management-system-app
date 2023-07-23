@@ -1,6 +1,8 @@
 package pl.wasik.damian.spring.app.fleet.management.system.parameters.controllers;
 
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -8,64 +10,81 @@ import pl.wasik.damian.spring.app.fleet.management.system.parameters.models.Coun
 import pl.wasik.damian.spring.app.fleet.management.system.parameters.services.CountryService;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 @Controller
 public class CountryController {
 
-    private final static Logger LOGGER = Logger.getLogger(CountryController.class.getName());
-
     @Autowired
     private CountryService countryService;
 
-    @GetMapping("/countries")
-    public String getAll(Model model) {
-        LOGGER.info("getAll()");
-        List<Country> countries = countryService.getAll();
-        model.addAttribute("countries", countries);
-        return "parameters/countryList";
+    @GetMapping("/parameters/countries")
+    public String getAllPages(Model model) {
+        return getOnePage(model, 1);
     }
 
-    @GetMapping("/countryAdd")
+    @GetMapping("/parameters/countries/page/{pageNumber}")
+    public String getOnePage(Model model, @PathVariable("pageNumber") int currentPage) {
+        Page<Country> page = countryService.findPage(currentPage);
+        int totalPages = page.getTotalPages();
+        long totalItems = page.getTotalElements();
+        List<Country> countries = page.getContent();
+
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("totalItems", totalItems);
+        model.addAttribute("countries", countries);
+
+        return "/parameters/countries";
+    }
+
+    @GetMapping("/parameters/countries/page/{pageNumber}/{field}")
+    public String getPageWithSort(Model model,
+                                  @PathVariable("pageNumber") int currentPage,
+                                  @PathVariable String field,
+                                  @PathParam("sortDir") String sortDir) {
+
+        Page<Country> page = countryService.findAllWithSort(field, sortDir, currentPage);
+        List<Country> countries = page.getContent();
+        int totalPages = page.getTotalPages();
+        long totalItems = page.getTotalElements();
+
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("totalItems", totalItems);
+
+        model.addAttribute("sortDir", sortDir);
+        model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
+        model.addAttribute("countries", countries);
+        return "/parameters/countries";
+    }
+
+    @GetMapping("/parameters/country/{id}")
+    public Country getCountry(@PathVariable Long id) {
+        return countryService.getById(id);
+    }
+
+    @GetMapping("/parameters/countryAdd")
     public String addCountry() {
-        LOGGER.info("addCountry()");
         return "parameters/countryAdd";
     }
 
-    @PostMapping("/countries")
+    @GetMapping("/parameters/country/{op}/{id}")
+    public String editCountry(@PathVariable Long id, @PathVariable String op, Model model) {
+        Country country = countryService.getById(id);
+        model.addAttribute("country", country);
+        return "/parameters/country" + op;
+    }
+
+    @PostMapping("/parameters/countries")
     public String save(Country country) {
-        LOGGER.info("save()");
         countryService.save(country);
-        return "redirect:/countries";
+        return "redirect:/parameters/countries";
     }
 
-    @GetMapping("/countryEdit/{id}")
-    public String editCountry(@PathVariable Long id, Model model) {
-        LOGGER.info("editCountry()");
-        Country country = countryService.getById(id);
-        model.addAttribute("country", country);
-        return "parameters/countryEdit";
-    }
-
-    @PostMapping("/countries/update/{id}")
-    public String edit(Country country) {
-        LOGGER.info("edit()");
-        countryService.save(country);
-        return "redirect:/countries";
-    }
-
-    @GetMapping("/countryDetails/{id}")
-    public String detailsCountry(@PathVariable Long id, Model model) {
-        LOGGER.info("detailsCountry()");
-        Country country = countryService.getById(id);
-        model.addAttribute("country", country);
-        return "parameters/countryDetails";
-    }
-
-    @GetMapping("/countries/delete/{id}")
+    @GetMapping("/parameters/countries/delete/{id}")
     public String delete(@PathVariable Long id) {
-        LOGGER.info("delete()");
         countryService.delete(id);
-        return "redirect:/countries";
+        return "redirect:/parameters/countries";
     }
+
 }
