@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="_layout" xmlns:th="">
+      layout:decorate="_layout">
 <body>
 
 <div layout:fragment="content">
@@ -49,30 +49,6 @@
                                         <textarea type="text" class="form-control" id="addressAdd" name="address"></textarea>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="ddlCountryAdd" class="col-form-label col-sm-4">Country: </label>
-                                    <div class="col-sm-6">
-                                        <select class="form-control" id="ddlCountryAdd" name="countryid">
-                                            <option th:value="${null}">-SELECT-</option>
-                                            <option th:each="country : ${countries}"
-                                                    th:value="${country.id}"
-                                                    th:text="${country.description}">
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="ddlStateAdd" class="col-form-label col-sm-4">State: </label>
-                                    <div class="col-sm-6">
-                                        <select class="form-control" id="ddlStateAdd" name="stateid">
-                                            <option th:value="${null}">-SELECT-</option>
-                                            <option th:each="state : ${states}"
-                                                    th:value="${state.id}"
-                                                    th:text="${state.name}">
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                     <label for="detailsAdd" class="col-form-label col-sm-4">Details:</label>
                                     <div class="col-sm-6">
@@ -97,31 +73,6 @@
         </div>
     </section>
 </div>
-<th:block layout:fragment="script">
-    <script language="JavaScript">
-        $('document').ready(function () {
 
-            $('#ddlCountryAdd').on('change',function () {
-                console.log("I got here!")
-
-                $('#ddlStateAdd').empty().append('<option value="null">-SELECT-</option>');
-
-                var countryid = $(this).val();
-
-                var href = "http://localhost:8080/parameters/country/" + countryid
-
-                $.get(href, function (country, status) {
-
-                    var states = country.states;
-
-                    for (var i = 0; i <= states.length-1; i++) {
-                        $('#ddlStateAdd').append('<option value="' + states[i].id + '">' + states[i].name + '</option>');
-                    }
-                })
-            })
-
-        })
-    </script>
-</th:block>
 </body>
 </html>

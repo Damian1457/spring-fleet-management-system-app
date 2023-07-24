@@ -21,7 +21,6 @@ public class StateController {
         return model;
     }
 
-    //Get All States
     @GetMapping("/parameters/states")
     public String findAll(Model model) {
         addModelAttribute(model);
