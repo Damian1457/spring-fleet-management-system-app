@@ -43,7 +43,7 @@ public class LocationController {
         Location location = locationService.findById(id);
         model.addAttribute("location", location);
         addModelAttributes(model);
-        return "/parameters/location" + op;
+        return "/parameters/location" + op; //returns locationEdit or locationDetails
     }
 
     @PostMapping("/parameters/locations")
@@ -57,5 +57,4 @@ public class LocationController {
         locationService.deleteById(id);
         return "redirect:/parameters/locations";
     }
-
 }
