@@ -7,9 +7,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import pl.wasik.damian.spring.app.fleet.management.system.parameters.models.CommonObject;
 
+
 @Entity
 @Data
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper=false)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class VehicleType extends CommonObject {
+
 }

@@ -1,5 +1,6 @@
 package pl.wasik.damian.spring.app.fleet.management.system.parameters.controllers;
 
+
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.wasik.damian.spring.app.fleet.management.system.parameters.models.Country;
 import pl.wasik.damian.spring.app.fleet.management.system.parameters.services.CountryService;
+
 
 import java.util.List;
 
@@ -59,6 +61,7 @@ public class CountryController {
     }
 
     @GetMapping("/parameters/country/{id}")
+    @ResponseBody
     public Country getCountry(@PathVariable Long id) {
         return countryService.getById(id);
     }

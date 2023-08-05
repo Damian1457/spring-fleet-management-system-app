@@ -1,5 +1,6 @@
 package pl.wasik.damian.spring.app.fleet.management.system.parameters.services;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -17,16 +18,16 @@ public class CountryService {
     @Autowired
     private CountryRepository countryRepository;
 
-    public List<Country> findAll(){
+    public List<Country> findAll() {
         return countryRepository.findAll();
     }
 
-    public Page<Country> findPage(int pageNumber){
-        Pageable pageable = PageRequest.of(pageNumber -1, 5);
+    public Page<Country> findPage(int pageNumber) {
+        Pageable pageable = PageRequest.of(pageNumber - 1, 5);
         return countryRepository.findAll(pageable);
     }
 
-    public  void save(Country country){
+    public void save(Country country) {
         countryRepository.save(country);
     }
 
@@ -42,10 +43,9 @@ public class CountryService {
         countryRepository.save(country);
     }
 
-    public List<Country> findByKeyword(String keyword){
+    public List<Country> findByKeyword(String keyword) {
         return countryRepository.findByKeyword(keyword);
     }
-
 
     public Page<Country> findAllWithSort(String field, String direction, int pageNumber) {
         Sort sort = direction.equalsIgnoreCase(Sort.Direction.ASC.name()) ?

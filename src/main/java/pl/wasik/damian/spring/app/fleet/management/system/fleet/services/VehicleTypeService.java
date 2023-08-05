@@ -1,5 +1,6 @@
 package pl.wasik.damian.spring.app.fleet.management.system.fleet.services;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.wasik.damian.spring.app.fleet.management.system.fleet.models.VehicleType;
@@ -14,19 +15,24 @@ public class VehicleTypeService {
     @Autowired
     private VehicleTypeRepository vehicleTypeRepository;
 
+    //Get All VehicleTypes
     public List<VehicleType> findAll() {
         return vehicleTypeRepository.findAll();
     }
 
-    public Optional<VehicleType> findById(Long id) {
+    //Get VehicleType By Id
+    public Optional<VehicleType> findById(int id) {
         return vehicleTypeRepository.findById(id);
     }
 
+    //Delete VehicleType
+    public void delete(int id) {
+        vehicleTypeRepository.deleteById(id);
+    }
+
+    //Update VehicleType
     public void save(VehicleType vehicleType) {
         vehicleTypeRepository.save(vehicleType);
     }
 
-    public void delete(Long id) {
-        vehicleTypeRepository.deleteById(id);
-    }
 }

@@ -9,7 +9,8 @@ import pl.wasik.damian.spring.app.fleet.management.system.parameters.models.Comm
 
 @Entity
 @Data
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper=false)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class VehicleStatus extends CommonObject {
+
 }

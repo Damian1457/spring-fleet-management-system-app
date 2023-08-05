@@ -20,7 +20,6 @@ public class CountryRepositoryTest {
     private static final String COUNTRY_CONTINENT_USA = "North America";
     public static final long NON_EXISTING_ID = 0L;
 
-
     @Autowired
     private CountryRepository countryRepository;
 
