@@ -1,5 +1,6 @@
 package pl.wasik.damian.spring.app.fleet.management.system.parameters.controllers;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,4 +52,5 @@ public class StateController {
         stateService.delete(id);
         return "redirect:/parameters/states";
     }
+
 }

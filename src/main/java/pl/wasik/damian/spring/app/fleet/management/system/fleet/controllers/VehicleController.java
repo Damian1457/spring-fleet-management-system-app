@@ -1,5 +1,6 @@
 package pl.wasik.damian.spring.app.fleet.management.system.fleet.controllers;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,8 +22,7 @@ public class VehicleController {
     private VehicleModelService vehicleModelService;
     @Autowired
     private LocationService locationService;
-//    @Autowired
-//    private EmployeeService employeeService;
+    //	@Autowired private EmployeeService employeeService ;
     @Autowired
     private VehicleStatusService vehicleStatusService;
 
@@ -32,11 +32,12 @@ public class VehicleController {
         model.addAttribute("vehicleModels", vehicleModelService.findAll());
         model.addAttribute("vehicleMakes", vehicleMakeService.findAll());
         model.addAttribute("locations", locationService.findAll());
-//        model.addAttribute("employees", employeeService.findAll());
+//		model.addAttribute("employees", employeeService.findAll());
         model.addAttribute("vehicleStatuses", vehicleStatusService.findAll());
         return model;
     }
 
+    //Get All Vehicles
     @GetMapping("/fleet/vehicles")
     public String findAll(Model model) {
         addModelAttributes(model);
@@ -49,22 +50,24 @@ public class VehicleController {
         return "fleet/vehicleAdd";
     }
 
+    //The op parameter is either Edit or Details
     @GetMapping("/fleet/vehicle/{op}/{id}")
-    public String editVehicle(@PathVariable Long id, @PathVariable String op, Model model) {
+    public String editVehicle(@PathVariable Integer id, @PathVariable String op, Model model) {
         Vehicle vehicle = vehicleService.findById(id);
         model.addAttribute("vehicle", vehicle);
         addModelAttributes(model);
-        return "/fleet/vehicle" + op;
+        return "/fleet/vehicle" + op; //returns vehicleEdit or vehicleDetails
     }
 
+    //Add Vehicle
     @PostMapping("/fleet/vehicles")
     public String addNew(Vehicle vehicle) {
         vehicleService.save(vehicle);
         return "redirect:/fleet/vehicles";
     }
 
-    @GetMapping("/fleet/vehicle/delete/{id}")
-    public String delete(@PathVariable Long id) {
+    @RequestMapping(value = "/fleet/vehicle/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String delete(@PathVariable Integer id) {
         vehicleService.delete(id);
         return "redirect:/fleet/vehicles";
     }

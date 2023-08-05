@@ -3,64 +3,52 @@ package pl.wasik.damian.spring.app.fleet.management.system;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.logging.Logger;
-
 @Controller
 public class ApplicationController {
 
-    private static final Logger LOGGER = Logger.getLogger(ApplicationController.class.getName());
-
     @GetMapping("/index")
-    public String index() {
-        LOGGER.info("index()");
+    public String goHome() {
         return "index";
     }
 
-    @GetMapping("/_layout")
-    public String layout() {
-        LOGGER.info("layout()");
-        return "_layout";
-    }
-
-    @GetMapping("/hr")
+    @GetMapping("hr")
     public String hr() {
-        LOGGER.info("hr()");
-        return "hr/index";
+        return "/hr/index";
     }
 
-    @GetMapping("/accounts")
-    public String accounts() {
-        LOGGER.info("accounts()");
-        return "accounts/index";
-    }
-
-    @GetMapping("/fleet")
+    @GetMapping("fleet")
     public String fleet() {
-        LOGGER.info("fleet()");
-        return "fleet/index";
+        return "/fleet/index";
     }
 
-    @GetMapping("/helpdesk")
+    @GetMapping("accounts")
+    public String accounts() {
+        return "/accounts/index";
+    }
+
+    @GetMapping("payroll")
+    public String payroll() {
+        return "/payroll/index";
+    }
+
+    @GetMapping("helpdesk")
     public String helpdesk() {
-        LOGGER.info("helpdesk()");
-        return "helpdesk/index";
+        return "/helpdesk/index";
     }
 
-    @GetMapping("/parameters")
+    @GetMapping("parameters")
     public String parameters() {
-        LOGGER.info("parameters()");
-        return "parameters/index";
+        return "/parameters/index";
     }
 
-    @GetMapping("/reports")
+    @GetMapping("reports")
     public String reports() {
-        LOGGER.info("reports()");
-        return "reports/index";
+        return "/reports/index";
     }
 
-    @GetMapping("/security")
+    @GetMapping("security")
     public String security() {
-        LOGGER.info("security()");
-        return "security/index";
+        return "/security/index";
     }
+
 }

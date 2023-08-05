@@ -16,30 +16,31 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class VehicleMaintenance {
+public class VehicleMaintenance{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
+	private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "vehicleid", insertable = false, updatable = false)
-    private Vehicle vehicle;
-    private Long vehicleid;
+	@ManyToOne
+	@JoinColumn(name="vehicleid", insertable=false, updatable=false)
+	private Vehicle vehicle;
+	private Integer vehicleid;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date startDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date startDate;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date endDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date endDate;
 
-    private String price;
+	private String price;
 
-    @ManyToOne
-    @JoinColumn(name = "supplierid", insertable = false, updatable = false)
-    private Supplier supplier;
-    private Long supplierid;
+	@ManyToOne
+	@JoinColumn(name="supplierid", insertable=false, updatable=false)
+	private Supplier supplier;
+	private Integer supplierid;
 
-    private String remarks;
+	private String remarks;
+
 }

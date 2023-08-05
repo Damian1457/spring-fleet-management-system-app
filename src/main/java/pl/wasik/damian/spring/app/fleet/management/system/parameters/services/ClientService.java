@@ -1,5 +1,6 @@
 package pl.wasik.damian.spring.app.fleet.management.system.parameters.services;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.wasik.damian.spring.app.fleet.management.system.parameters.models.Client;
@@ -7,25 +8,31 @@ import pl.wasik.damian.spring.app.fleet.management.system.parameters.repositorie
 
 import java.util.List;
 
+
 @Service
 public class ClientService {
 
-    @Autowired
-    private ClientRepository clientRepository;
+	@Autowired
+	private ClientRepository clientRepository;
 
-    public List<Client> findAll() {
-        return clientRepository.findAll();
-    }
+	//Get All Clients
+	public List<Client> findAll(){
+		return clientRepository.findAll();
+	}
 
-    public Client findById(Long id) {
-        return clientRepository.findById(id).orElse(null);
-    }
+	//Get Client By Id
+	public Client findById(int id) {
+		return clientRepository.findById(id).orElse(null);
+	}
 
-    public void deleteById(Long id) {
-        clientRepository.deleteById(id);
-    }
+	//Delete Client
+	public void deleteById(int id) {
+		clientRepository.deleteById(id);
+	}
 
-    public void save(Client client) {
-        clientRepository.save(client);
-    }
+	//Update Client
+	public void save( Client client) {
+		clientRepository.save(client);
+	}
+
 }

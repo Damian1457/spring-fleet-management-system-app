@@ -1,5 +1,6 @@
 package pl.wasik.damian.spring.app.fleet.management.system.parameters.services;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.wasik.damian.spring.app.fleet.management.system.parameters.models.State;
@@ -20,7 +21,7 @@ public class StateService {
     public State findById(Long id) {
         return stateRepository.findById(id).orElse(null);
     }
-
+    
     public void delete(Long id) {
         stateRepository.deleteById(id);
     }

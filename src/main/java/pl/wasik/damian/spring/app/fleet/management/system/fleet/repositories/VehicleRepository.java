@@ -5,5 +5,6 @@ import org.springframework.stereotype.Repository;
 import pl.wasik.damian.spring.app.fleet.management.system.fleet.models.Vehicle;
 
 @Repository
-public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
+public interface VehicleRepository extends JpaRepository<Vehicle, Integer> {
+
 }

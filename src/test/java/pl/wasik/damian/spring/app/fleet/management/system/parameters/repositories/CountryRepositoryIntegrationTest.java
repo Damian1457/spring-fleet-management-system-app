@@ -24,7 +24,7 @@ class CountryRepositoryIntegrationTest {
     public static final String COUNTRY_NATIONALITY_CAN = "Canadian";
     public static final String COUNTRY_CONTINENT_CAN = "North America";
     public static final String CODE_PL = "PL";
-    public static final int ID_2 = 2;
+    public static final long ID_2 = 2L;
 
 
     @Autowired

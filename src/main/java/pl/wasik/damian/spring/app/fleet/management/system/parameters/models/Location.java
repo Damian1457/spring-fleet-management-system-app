@@ -7,31 +7,32 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Location {
-
-    @Id
+	
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-
-    private String description;
-    private String details;
-
-    @ManyToOne
-    @JoinColumn(name = "countryid", insertable = false, updatable = false)
-    private Country country;
-    private Long countryid;
-
-    @ManyToOne
-    @JoinColumn(name = "stateid", insertable = false, updatable = false)
-    private State state;
-    private Long stateid;
-
-    private String city;
-    private String address;
+	@Column(name="id")
+	private Integer id;
+	
+	private String description;
+	private String details;
+	
+	@ManyToOne
+	@JoinColumn(name="countryid", insertable=false, updatable=false)
+	private Country country;
+	private Integer countryid;
+	
+	@ManyToOne
+	@JoinColumn(name="stateid", insertable=false, updatable=false)
+	private State state;	
+	private Integer stateid;
+		
+	private String city;
+	private String address;			
 }

@@ -7,22 +7,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Contact {
-
-    @Id
+		
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-
-    private String firstname;
-    private String lastname;
-    private String phone;
-    private String email;
-    private String mobile;
-    private String remarks;
+	@Column(name="id")
+	private int id;
+	private String firstname;
+	private String lastname;
+	private String phone;
+	private String email;
+	private String mobile;
+	private String remarks;
 }
