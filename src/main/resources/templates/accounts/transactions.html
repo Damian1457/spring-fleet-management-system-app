@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="_layout">
+      layout:decorate="_layout" xmlns:th="http://www.w3.org/1999/xhtml">
 <body>
 
 <div layout:fragment="content">
@@ -54,7 +54,7 @@
                                         <i class="icon_document_alt"></i></a>
                                     <a class="btn btn-danger"
                                        onclick="return confirm('Are you sure?')"
-                                       th:href="@{'/accounts/transaction/delete/'+${transaction.id}}">
+                                       th:href="@{'/accounts/transactions/delete/'+${transaction.id}}">
                                         <i class="icon_close_alt2"></i>
                                     </a>
                                 </div>
