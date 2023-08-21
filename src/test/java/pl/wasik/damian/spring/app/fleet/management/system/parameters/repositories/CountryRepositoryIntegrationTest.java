@@ -26,7 +26,6 @@ class CountryRepositoryIntegrationTest {
     public static final String CODE_PL = "PL";
     public static final long ID_2 = 2L;
 
-
     @Autowired
     private CountryRepository countryRepository;
 
