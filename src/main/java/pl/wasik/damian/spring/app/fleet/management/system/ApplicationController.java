@@ -50,5 +50,4 @@ public class ApplicationController {
     public String security() {
         return "/security/index";
     }
-
 }
